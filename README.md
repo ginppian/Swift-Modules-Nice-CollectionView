@@ -1,0 +1,2 @@
+Swift Module: Nice CollectionView
+===========
