@@ -20,10 +20,14 @@ Configuramos nuestra vista:
 
 * Vamos a nuestro Main.storyboard
 * Arrastramos un UICollectionView al canvas de nuestro ViewController
-* Lo redimensionamos para que ocupe el mismo frac del canvas y le damos to Suggested Constrains
+* Lo redimensionamos para que ocupe los mismos limites que nuestro  canvas a continuación chicheamos el triángulo inferior |-△-| y seleccionamos *Reset to Suggested Constrains*
 * Seleccionando nuestro UICollectionView hacemos *Ctrl* + *Drag* y arrastramos la linea azul arriba hasta el circulo amarillo que representa todo nuestro ViewController
-* Seleccionamos *dataSource*
-* Repetimos el paso anterior y ahora seleccionamos *delegate*
+* Seleccionamos **dataSource**
+* Repetimos el paso anterior y ahora seleccionamos **delegate**
+
+####NOTA:
+
+Es importante hacer *dataSource* y *delegate* ya que de esta manera cumpliremos los protocolos que vienen más adelante para las funciones del *CollectionView*.
 
 Configuramos nuestra celda:
 
