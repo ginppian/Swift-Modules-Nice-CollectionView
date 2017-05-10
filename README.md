@@ -31,9 +31,9 @@ Es importante hacer *dataSource* y *delegate* ya que de esta manera cumpliremos 
 
 Configuramos nuestra celda:
 
-* De lado izquierdo (Document Out Line) tenemos nuestro *View Controller Scene* inmediatamente abajo tenemos nuestro *CollectionView* lo seleccionamos y del lado derecho (Inspector) en el apartado *Show the Size Inspector* nos fijamos que *Min Spacing* y *For Lines* se encuentre con valores en cero (todo debe estar en cero excepto *Cell Size* que puede tener valores aleatorios pero que sea nxn, es decir el mismo ancho por el mismo alto).
-* Arrastramos un *UIImageView* dentro de *Collection View Cell* podemos hacer más grande nuestra celda de manera que acomodando manualmente la imagen que ésta del mismo tamaño que la celda.
-* Seleccionamos la imagen y en el triángulo inferior |-△-| seleccionamos *Reset to Suggested Constrains* el que está en la parte superior (el que está en la parte superior resetea los constrains y agrega los que el sistema considera convenientes y que está en la parte inferior hace lo mismo pero para todos los elementos. En este caso sólo nos interesa el *UIImageView*).
+* De lado izquierdo (Document Out Line) tenemos nuestro *View Controller Scene* inmediatamente abajo tenemos nuestro *CollectionView* lo seleccionamos y del lado derecho (Inspector) en el apartado *Show the Size Inspector* nos fijamos que *Min Spacing* y *For Lines* se encuentre con valores en cero (todo debe estar en cero excepto *Cell Size* que puede tener valores aleatorios pero que sea NxN, es decir el mismo ancho por el mismo alto).
+* Arrastramos un *UIImageView* dentro de *Collection View Cell* y acomodamos el *UIImageView* de tal manera que quede del mismo tamaño que la celda.
+* Seleccionamos la imagen y en el triángulo inferior |-△-| seleccionamos *Reset to Suggested Constrains* (saldrá una ventana emergente dividida con una linea con opciones por arriba y por abajo de la linea) tomamos el *Reset to Suggested Constrains* que está en la parte superior (el que está en la parte superior resetea los constrains y agrega los que el sistema considera convenientes. El que está en la parte inferior hace lo mismo pero para todos los elementos de la vista. En este caso sólo nos interesa el elemento *UIImageView*).
 
 
 
