@@ -55,15 +55,13 @@ regresamos a *Main.storyboard* del lado izquierdo (Show document outline) selecc
 
 Usamos *static* para poder acceder a __niceCell__ desde el nombre de la clase y ahorrándonos la necesidad de instanciar un objeto de esa clase y después acceder a sus métodos. Es decir para acceder a *niceCell* pondríamos *NiceCollectionViewCell.identifier* en nuestro código y accederemos a nuestro recurso de manera rápida.
 
-
-
 Configurando los métodos de nuestros **protocolos**:
 
 * Nos dirigimos al archivo *ViewController* y escribimos lo siguiente:
 ```
 fileprivate let array = ["img1", "img2", "img3", "img4","img5"]
 ```
-*let* porque es una constante y nuestro array en este ejemplo no cambiará.
+Usamos *let* porque es una constante y nuestro array en este ejemplo no cambia.
 *fileprivate* se refiere a que será un array privado, pero a diferencia de *private* que sólo es accesible dentro de la clase, *fileprivate* es accesible para cualquier clase que este dentro del archivo.
 
 * Agregaremos la siguiente extension:
