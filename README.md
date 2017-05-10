@@ -388,7 +388,9 @@ Y en nuestro dispositivo se vería algo así:
 </p>
 
 
-El uso de *CollectionView* es agradable para su uso e implementación. Aun que parezca difícil siempre hay que intentar hacer las cosas, y poco a poco las lograremos =)
+El uso de *CollectionView* es agradable para su uso e implementación, generando una mejor experiencia de usuario. 
+
+Aun que parezca difícil siempre hay que intentar hacer las cosas, y poco a poco las lograremos =)
 
 #### Contacto
 
