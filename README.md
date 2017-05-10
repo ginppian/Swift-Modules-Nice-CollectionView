@@ -264,11 +264,11 @@ Si mantenemos el cursor sobre *UICollectionViewDelegateFlowLayout* presionamos *
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {}
 ```
 
-esta función como nos permite redimensionar el tamaño de nuestra celda. La función nos pide que regresemos un *CGSize(with:_, height:_)* el *width* será el *ancho* de nuestra pantalla, podemos acceder a este, a través de:
+esta función como nos permite redimensionar el tamaño de nuestra celda. La función nos pide que regresemos un *CGSize(with:__, height:__)* el *width* será el *ancho* de nuestra pantalla, podemos acceder a este, a través de:
 
 ```
 UIScreen.main.bounds.width
-``
+```
 
 o
 
