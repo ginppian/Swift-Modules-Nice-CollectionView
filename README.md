@@ -41,9 +41,12 @@ Configuramos nuestra celda:
 
 Configuramos nuestros **Controllers**:
 
-* Agregamos un *CellViewController* que controlará nuestra celda. Para esto vamos a *File->New->File* seleccionamos *Cocoa Touch Class* damos click en *next* en *sub class of* buscamos *UICollectionViewCell* esto nos auto completara la parte de arriba *Class* con el nombre de la subclase que acabamos de seleccionar. Como buena práctica nuestra clase se llamará *Nombre Haga Referencia* + *Subclass*, es decir, quedará algo así: *NiceCollectionViewCell*, para finalizar presionamos *next* y *create*.
+* Agregamos un *CellViewController* que controlará nuestra celda. Para esto vamos a *File->New->File* seleccionamos *Cocoa Touch Class* damos click en *next*. En el apartado *sub class of* buscamos *UICollectionViewCell* esto nos auto completara la parte de arriba *Class* con el nombre de la subclase que acabamos de seleccionar. Como buena práctica nuestra clase se llamará *Nombre Haga Referencia* + *Subclass*, es decir, quedará algo así: *NiceCollectionViewCell*, para finalizar presionamos *next* y *create*.
+
 * Regresamos a nuestro *Main.storyboard* de lado izquierdo (Show Document Outline) buscamos nuestra celda o *Collection View Cell* la seleccionamos y del lado derecho en *Show the identity inspector* (un cuadro con un cuadro más pequeño adentro) en donde dice **Class** escribimos el nombre del Controller de nuestra celda que acabamos de crear en este caso es *NiceCollectionViewCell* (si escribimos las iniciales Xcode nos acompletará) y presionamos *enter*.
+
 * Damos click en *Show the assistant editor* y veremos como se divide la pantalla por un lado tendremos nuestro *Main.storyboard* y por el otro el código de nuestro *NiceCollectionViewCell* seleccionamos nuestro *Image View* embebido en nuestra celda y haciendo *ctrl* + *drag* arrastramos entre las llaves de nuestro *NiceCollectionViewCell* nos saldrá un *pop up* o una ventana emergente en el campo *Name* escribiremos *imagen*, y nos fijaremos que donde dice *Connection* sea *Outlet* posteriormente damos click en *Connect*. 
+
 * Por último escribimos lo siguiente dentro de *NiceCollectionViewCell*:
 ```
 static let identifier = "niceCell"
