@@ -16,7 +16,7 @@ Nuestro cerebro procesa información por bloques, por esta razón es común que 
 
 ### Paso 1
 
-Configuramos nuestra vista:
+Configuramos nuestra **vista**:
 
 * Vamos a nuestro Main.storyboard
 * Arrastramos un UICollectionView al canvas de nuestro ViewController
@@ -39,7 +39,7 @@ Configuramos nuestra celda:
 
 ### Paso 2
 
-Configuramos nuestros Controllers:
+Configuramos nuestros **Controllers**:
 
 * Agregamos un *CellViewController* que controlará nuestra celda. Para esto vamos a *File->New->File* seleccionamos *Cocoa Touch Class* damos click en *next* en *sub class of* buscamos *UICollectionViewCell* esto nos auto completara la parte de arriba *Class* con el nombre de la subclase que acabamos de seleccionar. Como buena práctica nuestra clase se llamará *Nombre Haga Referencia* + *Subclass*, es decir, quedará algo así: *NiceCollectionViewCell*, para finalizar presionamos *next* y *create*.
 * Regresamos a nuestro *Main.storyboard* de lado izquierdo (Show Document Outline) buscamos nuestra celda o *Collection View Cell* la seleccionamos y del lado derecho en *Show the identity inspector* (un cuadro con un cuadro más pequeño adentro) en donde dice **Class** escribimos el nombre del Controller de nuestra celda que acabamos de crear en este caso es *NiceCollectionViewCell* (si escribimos las iniciales Xcode nos acompletará) y presionamos *enter*.
