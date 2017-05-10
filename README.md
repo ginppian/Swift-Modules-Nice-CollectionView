@@ -125,7 +125,7 @@ extension ViewController: UICollectionViewDataSource {
 Si ahora construimos y corremos el proyecto, probablemente veamos algo así:
 
 <p align="center">
-  <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/video.gif" width="320" height="568" />
+  <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/tuto1.png" width="320" height="568" />
 </p>
 
 * En nuestro ViewController
