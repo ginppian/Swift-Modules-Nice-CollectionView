@@ -31,7 +31,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lUF-gU-xtp">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="niceCell" id="lUF-gU-xtp" customClass="NiceCollectionViewCell" customModule="Nice_CollectionView" customModuleProvider="target">
                                         <rect key="frame" x="86" y="0.0" width="204" height="194"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -50,10 +50,14 @@
                                             <constraint firstItem="aAc-aO-78f" firstAttribute="top" secondItem="lUF-gU-xtp" secondAttribute="top" id="rAY-u4-qT0"/>
                                         </constraints>
                                         <size key="customSize" width="204" height="194"/>
+                                        <connections>
+                                            <outlet property="imagen" destination="aAc-aO-78f" id="zWT-ha-viE"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="JTt-qp-CMD"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="G4C-Jw-oS9"/>
                                 </connections>
                             </collectionView>
                         </subviews>

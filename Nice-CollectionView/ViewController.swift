@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    fileprivate let array = ["img1", "img2", "img3", "img4", "img5"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,3 +25,21 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        return self.array.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NiceCollectionViewCell.identifier,
+                                                      for: indexPath) as! NiceCollectionViewCell
+        
+        cell.imagen.image = UIImage(named: array[indexPath.item])
+        
+        return cell
+    }
+}

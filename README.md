@@ -35,8 +35,103 @@ Configuramos nuestra celda:
 
 ### Paso 2
 
-* En nuestro ViewController hasta arriba agregamos: 
-```import CarbonKit```
+Configuramos nuestros Controllers:
+
+* Agregamos un *CellViewController* que controlará nuestra celda. Para esto vamos a *File->New->File* seleccionamos *Cocoa Touch Class* damos click en *next* en *sub class of* buscamos *UICollectionViewCell* esto nos auto completara la parte de arriba *Class* con el nombre de la subclase que acabamos de seleccionar. Como buena práctica nuestra clase se llamará *Nombre Haga Referencia* + *Subclass*, es decir, quedará algo así: *NiceCollectionViewCell*, para finalizar presionamos *next* y *create*.
+* Regresamos a nuestro *Main.storyboard* de lado izquierdo (Show Document Outline) buscamos nuestra celda o *Collection View Cell* la seleccionamos y del lado derecho en *Show the identity inspector* (un cuadro con un cuadro más pequeño adentro) en donde dice **Class** escribimos el nombre del Controller de nuestra celda que acabamos de crear en este caso es *NiceCollectionViewCell* (si escribimos las iniciales Xcode nos acompletará) y presionamos *enter*.
+* Damos click en *Show the assistant editor* y veremos como se divide la pantalla por un lado tendremos nuestro *Main.storyboard* y por el otro el código de nuestro *NiceCollectionViewCell* seleccionamos nuestro *Image View* embebido en nuestra celda y haciendo *ctrl* + *drag* arrastramos entre las llaves de nuestro *NiceCollectionViewCell* nos saldrá un *pop up* o una ventana emergente en el campo *Name* escribiremos *imagen*, y nos fijaremos que donde dice *Connection* sea *Outlet* posteriormente damos click en *Connect*. 
+* Por último escribimos lo siguiente dentro de *NiceCollectionViewCell*:
+```
+static let identifier = "niceCell"
+```
+y regresamos a *Main.storyboard* del lado izquierdo (Show document outline) seleccionamos *Nice Collection View Cell* y del lado derecho en *Show the attributes inspector* en donde dice **identifier** escribimos *niceCell* y presionamos enter.
+
+Usamos *static* para poder acceder a *niceCell* desde el nombre de la clase y ahorrándonos la necesidad de instancias esa clase, es decir para acceder a *niceCell* pondríamos *NiceCollectionViewCell.identifier* de manera rápida.
+
+Configuramos nuestros protocolos:
+
+* Nos dirigimos al archivo *ViewController* y escribimos lo siguiente:
+```
+fileprivate let array = ["img1", "img2", "img3", "img4","img5"]
+```
+*let* porque es una constante y nuestro array en este ejemplo no cambiará.
+*fileprivate* se refiere a que será un array privado, pero a diferencia de *private* que sólo es accesible dentro de la clase, *fileprivate* es accesible para cualquier clase que este dentro del archivo.
+
+* Agregaremos la siguiente extension:
+
+```
+extension ViewController: UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        return self.array.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NiceCollectionViewCell.identifier,
+                                                      for: indexPath) as! NiceCollectionViewCell
+        
+        cell.imagen.image = UIImage(named: array[indexPath.item])
+        
+        return cell
+    }
+}
+```
+
+es decir, nuestro *ViewController* se vería algo así:
+
+```
+import UIKit
+
+class ViewController: UIViewController {
+    
+    fileprivate let array = ["img1", "img2", "img3", "img4", "img5"]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+}
+
+extension ViewController: UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        return self.array.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NiceCollectionViewCell.identifier,
+                                                      for: indexPath) as! NiceCollectionViewCell
+        
+        cell.imagen.image = UIImage(named: array[indexPath.item])
+        
+        return cell
+    }
+}
+```
+
+Si ahora construimos y corremos el proyecto, probablemente veamos algo así:
+
+<p align="center">
+  <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/video.gif" width="320" height="568" />
+</p>
+
+* En nuestro ViewController
+* En nuestro ViewController
+* En nuestro ViewController
+* En nuestro ViewController
 
 * Agregamos el siguiente protocolo: CarbonTabSwipeNavigationDelegate
 se vería algo así: 
