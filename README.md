@@ -63,7 +63,7 @@ fileprivate let array = ["img1", "img2", "img3", "img4","img5"]
 ```
 Usamos *let* porque es una constante y nuestro array en este ejemplo no cambia.
 <br>
-*fileprivate* se refiere a que será un array privado, pero a diferencia de *private* que sólo es accesible dentro de la clase, *fileprivate* es accesible para cualquier clase que este dentro del archivo.
+**fileprivate** se refiere a que será un array privado, pero a diferencia de *private* que sólo es accesible dentro de la clase, *fileprivate* es accesible para cualquier clase que este dentro del archivo.
 
 * Agregaremos la siguiente extension:
 
