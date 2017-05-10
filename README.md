@@ -132,7 +132,7 @@ Si ahora construimos y corremos el proyecto, probablemente veamos algo así:
 
 Ahora le daremos un formato más amigable en el que ocupe el ancho de la pantalla y forme un cuadrado:
 
-*Redimensionamos el tamaño de la celda. 
+* Redimensionamos el tamaño de la celda. 
 
 A pesar de que en internet podamos encontrar funciones como está:
 
