@@ -310,14 +310,6 @@ nos permite darle *margenes* o un *padding* a nuestro top, left, bottom o right,
 Al final el código de nuestro *ViewController* se vería algo así:
 
 ```
-//
-//  ViewController.swift
-//  Nice-CollectionView
-//
-//  Created by ginppian on 09/05/17.
-//  Copyright © 2017 Nut Systems. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
