@@ -10,11 +10,13 @@ Nuestro cerebro procesa información por bloques, por esta razón es común que 
 
 ## Observaciones Técnicas
 * Este proyecto se realizó usando Xcode 8.3.2
-* Se usaron imágenes **Dummie** cuadradas que se pueden encontrar en la carpeta **Assets** y las cuales son cuadradas.
+* Se usaron imágenes **Dummie** cuadradas que se pueden encontrar en la carpeta **Assets**.
 
 ## Implementación
 
 ### Paso 1
+
+Configuramos nuestra vista:
 
 * Vamos a nuestro Main.storyboard
 * Arrastramos un UICollectionView al canvas de nuestro ViewController
@@ -22,11 +24,13 @@ Nuestro cerebro procesa información por bloques, por esta razón es común que 
 * Seleccionando nuestro UICollectionView hacemos *Ctrl* + *Drag* y arrastramos la linea azul arriba hasta el circulo amarillo que representa todo nuestro ViewController
 * Seleccionamos *dataSource*
 * Repetimos el paso anterior y ahora seleccionamos *delegate*
-* De lado izquierdo tenemos nuestro *View Controller Scene* lo seleccionamos y en el apartado *Show the Size Inspector* nos fijamos que *Min Spacing* y *For Lines* se encuentre en cero (todo debería estar en cero excepto *Cell Size*).
-* Vamos a nuestro Main.storyboard
-* Vamos a nuestro Main.storyboard
-* Vamos a nuestro Main.storyboard
-* Vamos a nuestro Main.storyboard
+
+Configuramos nuestra celda:
+
+* De lado izquierdo (Document Out Line) tenemos nuestro *View Controller Scene* lo seleccionamos y del lado derecho en el apartado *Show the Size Inspector* nos fijamos que *Min Spacing* y *For Lines* se encuentre en cero (todo debería estar en cero excepto *Cell Size*).
+* Arrastramos un *UIImageView* dentro de *Collection View Cell* podemos hacer más grande nuestra celda de manera que acomodando manualmente la imagen que ésta del mismo tamaño que la celda.
+* Seleccionamos la imagen y en el triángulo inferior |-△-| seleccionamos *Reset to Suggested Constrains* el que está en la parte superior (el que está en la parte superior resetea los constrains y agrega los que el sistema considera convenientes y que está en la parte inferior hace lo mismo pero para todos los elementos. En este caso sólo nos interesa el *UIImageView*).
+
 
 
 ### Paso 2
