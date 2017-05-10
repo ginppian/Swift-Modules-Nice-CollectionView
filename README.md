@@ -10,7 +10,7 @@ Nuestro cerebro procesa información por bloques, por esta razón es común que 
 
 ## Observaciones Técnicas
 * Este proyecto se realizó usando Xcode 8.3.2
-* Se usaron imágenes **Dummie** cuadradas que se pueden encontrar en la carpeta **Assets**.
+* Se usaron imágenes **Dummie** cuadradas que se pueden encontrar en la carpeta **Assets** descargando este proyecto.
 
 ## Implementación
 
