@@ -128,162 +128,74 @@ Si ahora construimos y corremos el proyecto, probablemente veamos algo así:
   <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/tuto1.png" width="320" height="568" />
 </p>
 
-* En nuestro ViewController
-* En nuestro ViewController
-* En nuestro ViewController
-* En nuestro ViewController
+### Paso 3
 
-* Agregamos el siguiente protocolo: CarbonTabSwipeNavigationDelegate
-se vería algo así: 
-```
-class ViewController: UIViewController, CarbonTabSwipeNavigationDelegate {...} 
-```
+Ahora le daremos un formato más amigable en el que ocupe el ancho de la pantalla y forme un cuadrado:
 
-* Dentro del viewDidLoad agregamos lo siguiente:
-```
-let items = ["UnoViewController", "DosViewController", "TresViewController"]
-let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
-carbonTabSwipeNavigation.insert(intoRootViewController: self)
-```
+*Redimensionamos el tamaño de la celda. 
 
-* Posteriormente completamos el protocolo:
+A pesar de que en internet podamos encontrar funciones como está:
 
 ```
-    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+}
+```
+nos otros usaremos el siguiente protocolo
+
+```
+UICollectionViewDelegateFlowLayout
+```
+
+agregamos la siguiente extensión:
+
+```
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    //Use for size
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var vc = UIViewController()
+        //let width = UIScreen.main.bounds.width
+        let width = collectionView.bounds.width
+        let height = width
         
-        switch index {
-        case 0:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "UnoViewController") as! UnoViewController
-        case 1:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "DosViewController") as! DosViewController
-        case 2:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "TresViewController") as! TresViewController
-        default:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "UnoViewController") as! UnoViewController
-        }
-        
-        return vc
-    }
-```
-* Por último nos vamos a nuestro StoryBoards y arrastramos 3 ViewControllers. Seleccionamos el primero y del lado derecho en el Inspector buscamos donde dice: Identity -> StoryboardsID y colocamos: UnoViewController. Posteriormente creamos un nuevo archivo controlador lo nombramos como: UnoViewController y se lo asociamos a nuestra vista en el inspector: Custom Class -> Class.
-
-Haremos esto con los otros dos Controlers.
-
-#### Nota:
-
-Puede que nos marque un circulo rojo, no hay ningun problema al correr el proyecto se quita.
-
-* Al final nuestro código se quedaría así:
-
-```
-import UIKit
-import CarbonKit
-
-class ViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let items = ["UnoViewController", "DosViewController", "TresViewController"]
-        let carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
-        carbonTabSwipeNavigation.insert(intoRootViewController: self)
-        
+        return CGSize(width: width , height: height)
     }
     
-    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+    //Use for interspacing
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        var vc = UIViewController()
-        
-        switch index {
-        case 0:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "UnoViewController") as! UnoViewController
-        case 1:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "DosViewController") as! DosViewController
-        case 2:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "TresViewController") as! TresViewController
-        default:
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "UnoViewController") as! UnoViewController
-        }
-        
-        return vc
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
+        return -11
     }
     
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 17, left: 0, bottom: 0, right: 0)
+    }
 }
 ```
 
-<p align="center">
-  <img src="https://github.com/ginppian/Swift-Modules-Tap-Swipe-Navigation/blob/master/ejemplo1.png" width="320" height="568" />
-</p>
-
-
-#### Paso 3
-
-Si quisieramos personalizar lo podriamos modificar sus propiedades, nuestro código quedaría algo así:
+es decir, nuestro *ViewController* se vería algo así:
 
 ```
 import UIKit
-import CarbonKit
 
-class ViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
-
-    var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
+class ViewController: UIViewController {
     
+    fileprivate let array = ["img1", "img2", "img3", "img4", "img5"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
-        let items = ["CERCA DE TI", "EVENTOS", "PROMOCIONES"]
-        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: items, delegate: self)
-        carbonTabSwipeNavigation.insert(intoRootViewController: self)
-
-        self.style()
-    
+        // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    func style() {
-        let color: UIColor = UIColor(red: 121.0 / 255, green: 148.0 / 255, blue: 180.0 / 255, alpha: 1)
-        
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.barTintColor = color
-        self.navigationController?.navigationBar.barStyle = .blackTranslucent
-        carbonTabSwipeNavigation.toolbar.isTranslucent = false
-        
-        carbonTabSwipeNavigation.setIndicatorColor(color)
-        carbonTabSwipeNavigation.setTabExtraWidth(8)
-        
-        carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width/3, forSegmentAt: 0)
-        carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width/3, forSegmentAt: 1)
-        carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width/3 + 5, forSegmentAt: 2)
-        
-        carbonTabSwipeNavigation.setNormalColor(UIColor.black.withAlphaComponent(0.6))
-        carbonTabSwipeNavigation.setSelectedColor(color, font: UIFont.boldSystemFont(ofSize: 14))
 
-    }
-    
-    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
-        
-        
-        switch index {
-        case 0:
-            return self.storyboard!.instantiateViewController(withIdentifier: "UnoViewController") as! UnoViewController
-        case 1:
-            return self.storyboard!.instantiateViewController(withIdentifier: "DosViewController") as! DosViewController
-        case 2:
-            return self.storyboard!.instantiateViewController(withIdentifier: "TresViewController") as! TresViewController
-        default:
-            return self.storyboard!.instantiateViewController(withIdentifier: "UnoViewController") as! UnoViewController
-        }
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -291,13 +203,199 @@ class ViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
 
 
 }
+
+extension ViewController: UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        return self.array.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NiceCollectionViewCell.identifier,
+                                                      for: indexPath) as! NiceCollectionViewCell
+        
+        cell.imagen.image = UIImage(named: array[indexPath.item])
+        
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    //Use for size
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //let width = UIScreen.main.bounds.width
+        let width = collectionView.bounds.width
+        let height = width
+        
+        return CGSize(width: width , height: height)
+    }
+    
+    //Use for interspacing
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return -11
+    }
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 17, left: 0, bottom: 0, right: 0)
+    }
+}
 ```
 
+Si mantenemos el cursor sobre *UICollectionViewDelegateFlowLayout* presionamos *cmd* y damos click podremos acceder a la **definición** de ese protocolo en el cual podremos encontrar 6 funciones nos otros sólo usamos 3.
+
+**sizeForItemAt**
+
+```
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {}
+```
+
+esta función como nos permite redimensionar el tamaño de nuestra celda. La función nos pide que regresemos un *CGSize(with:_, height:_)* el *width* será el *ancho* de nuestra pantalla, podemos acceder a este, a través de:
+
+```
+UIScreen.main.bounds.width
+``
+
+o
+
+```
+collectionView.bounds.width
+```
+
+para obtener el *ancho* de nuestro *collection* que es el mismo que el de la *pantalla*.
+
+Posteriormente como queremos que nuestras *cells* sean **cuadradas** nuestro *height* será el mismo que el ancho.
+
+```
+let height = width
+```
+
+Si corremos el programa veremos algo así:
+
 <p align="center">
-  <img src="https://github.com/ginppian/Swift-Modules-Tap-Swipe-Navigation/blob/master/ejemplo2.png" width="320" height="568" />
+  <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/tuto2.png" width="320" height="568" />
 </p>
 
-#### Fuente
+Para finalizar la función
 
-[CarbonKit](https://github.com/ermalkaleci/CarbonKit/)
+```
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {}
+```
+
+Nos permite tener espacio entre nuestras celdas.
+
+y la función
+
+```
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {}
+```
+
+nos permite darle *margenes* o un *padding* a nuestro top, left, bottom o right, según consideremos.
+
+
+Al final el código de nuestro *ViewController* se vería algo así:
+
+```
+//
+//  ViewController.swift
+//  Nice-CollectionView
+//
+//  Created by ginppian on 09/05/17.
+//  Copyright © 2017 Nut Systems. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    fileprivate let array = ["img1", "img2", "img3", "img4", "img5"]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+}
+
+extension ViewController: UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        return self.array.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NiceCollectionViewCell.identifier,
+                                                      for: indexPath) as! NiceCollectionViewCell
+        
+        cell.imagen.image = UIImage(named: array[indexPath.item])
+        
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    //Use for size
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //let width = UIScreen.main.bounds.width
+        let width = collectionView.bounds.width
+        let height = width
+        
+        return CGSize(width: width , height: height)
+    }
+    
+    //Use for interspacing
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 10
+    }
+
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+    }
+}
+```
+
+Y en nuestro dispositivo se vería algo así:
+
+<p align="center">
+  <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/tuto3.png" width="320" height="568" />
+</p>
+
+#### Contacto
+
+Twitter: @ginppian
 

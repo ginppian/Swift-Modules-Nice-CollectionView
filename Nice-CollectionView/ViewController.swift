@@ -43,3 +43,59 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    //Use for size
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //let width = UIScreen.main.bounds.width
+        let width = collectionView.bounds.width
+        let height = width
+        
+        return CGSize(width: width , height: height)
+    }
+    
+    //Use for interspacing
+    
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 10
+    }
+
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
