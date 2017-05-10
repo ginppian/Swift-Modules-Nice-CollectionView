@@ -41,19 +41,19 @@ Configuramos nuestra celda:
 
 Configuramos nuestros **Controllers**:
 
-* Agregamos un *CellViewController* que controlará nuestra celda. Para esto vamos a *File->New->File* seleccionamos *Cocoa Touch Class* damos click en *next*. En el apartado *sub class of* buscamos *UICollectionViewCell* esto nos auto completara la parte de arriba *Class* con el nombre de la subclase que acabamos de seleccionar. Como buena práctica nuestra clase se llamará *Nombre Haga Referencia* + *Subclass*, es decir, quedará algo así: *NiceCollectionViewCell*, para finalizar presionamos *next* y *create*.
+* Agregamos un *CellViewController* que controlará nuestra celda. Para esto vamos a *File->New->File* seleccionamos *Cocoa Touch Class* damos click en *next*. En el apartado *sub class of* buscamos *UICollectionViewCell* esto nos auto completara la parte de arriba *Class* con el nombre de la subclase que acabamos de seleccionar. Como buena práctica nuestra clase se llamará: *NombreQueQueramos* + *Subclass*, es decir, podría quedará algo así: *NiceCollectionViewCell*, para finalizar presionamos *next* y *create*.
 
-* Regresamos a nuestro *Main.storyboard* de lado izquierdo (Show Document Outline) buscamos nuestra celda o *Collection View Cell* la seleccionamos y del lado derecho en *Show the identity inspector* (un cuadro con un cuadro más pequeño adentro) en donde dice **Class** escribimos el nombre del Controller de nuestra celda que acabamos de crear en este caso es *NiceCollectionViewCell* (si escribimos las iniciales Xcode nos acompletará) y presionamos *enter*.
+* Regresamos a nuestro *Main.storyboard* de lado izquierdo (Show Document Outline) buscamos nuestra celda o *Collection View Cell* la seleccionamos y del lado derecho (Inspector) en *Show the identity inspector* (un cuadro con un cuadro más pequeño adentro) en donde dice **Class** escribimos el nombre del Controller de nuestra celda que acabamos de crear en este caso es *NiceCollectionViewCell* (si escribimos las iniciales Xcode nos acompletará) posteriormente presionamos *enter*.
 
-* Damos click en *Show the assistant editor* y veremos como se divide la pantalla por un lado tendremos nuestro *Main.storyboard* y por el otro el código de nuestro *NiceCollectionViewCell* seleccionamos nuestro *Image View* embebido en nuestra celda y haciendo *ctrl* + *drag* arrastramos entre las llaves de nuestro *NiceCollectionViewCell* nos saldrá un *pop up* o una ventana emergente en el campo *Name* escribiremos *imagen*, y nos fijaremos que donde dice *Connection* sea *Outlet* posteriormente damos click en *Connect*. 
+* Damos click en *Show the assistant editor* (Dos circulo entrelazados que están en la esquina superior derecha) y veremos como se divide la pantalla por un lado tendremos nuestro *Main.storyboard* y por el otro el código de nuestro *NiceCollectionViewCell* seleccionamos nuestro *Image View* embebido en nuestra celda y haciendo *ctrl* + *drag* arrastramos  al código de nuestro *NiceCollectionViewCell* nos saldrá un *pop up* o una ventana emergente en el campo *Name* escribiremos __imagen__, y nos fijaremos que, donde dice *Connection* sea *Outlet*, posteriormente terminaremos dando click en *Connect*. 
 
-* Por último escribimos lo siguiente dentro de *NiceCollectionViewCell*:
+* Por último escribimos lo siguiente dentro de nuestro archivo *NiceCollectionViewCell*:
 ```
 static let identifier = "niceCell"
 ```
-y regresamos a *Main.storyboard* del lado izquierdo (Show document outline) seleccionamos *Nice Collection View Cell* y del lado derecho en *Show the attributes inspector* en donde dice **identifier** escribimos *niceCell* y presionamos enter.
+regresamos a *Main.storyboard* del lado izquierdo (Show document outline) seleccionamos *Nice Collection View Cell* y del lado derecho (Inspector) en *Show the attributes inspector* en donde dice **identifier** escribimos __niceCell__ y presionamos enter.
 
-Usamos *static* para poder acceder a *niceCell* desde el nombre de la clase y ahorrándonos la necesidad de instancias esa clase, es decir para acceder a *niceCell* pondríamos *NiceCollectionViewCell.identifier* de manera rápida.
+Usamos *static* para poder acceder a __niceCell__ desde el nombre de la clase y ahorrándonos la necesidad de instancias esa clase, es decir para acceder a *niceCell* pondríamos *NiceCollectionViewCell.identifier* de manera rápida.
 
 Configuramos nuestros protocolos:
 
