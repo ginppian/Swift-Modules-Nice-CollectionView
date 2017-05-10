@@ -290,7 +290,7 @@ Si corremos el programa veremos algo así:
   <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/tuto2.png" width="320" height="568" />
 </p>
 
-Para finalizar la función
+Para finalizar la función **minimumLineSpacingForSectionAt**
 
 ```
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {}
@@ -298,7 +298,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 
 Nos permite tener espacio entre nuestras celdas.
 
-y la función
+y la función **insetForSectionAt**
 
 ```
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {}
