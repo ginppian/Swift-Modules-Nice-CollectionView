@@ -395,6 +395,9 @@ Y en nuestro dispositivo se vería algo así:
   <img src="https://github.com/ginppian/Swift-Modules-Nice-CollectionView/blob/master/tuto3.png" width="320" height="568" />
 </p>
 
+
+El uso de *CollectionView* es agradable para su uso e implementación. Aun que parezca difícil siempre hay que intentar hacer las cosas, y poco a poco las lograremos =)
+
 #### Contacto
 
 Twitter: @ginppian
