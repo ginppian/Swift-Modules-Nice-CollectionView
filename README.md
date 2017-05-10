@@ -25,7 +25,7 @@ Configuramos nuestra vista:
 * Seleccionamos **dataSource**
 * Repetimos el paso anterior y ahora seleccionamos **delegate**
 
-####NOTA:
+#### NOTA:
 
 Es importante hacer *dataSource* y *delegate* ya que de esta manera cumpliremos los protocolos que vienen más adelante para las funciones del *CollectionView*.
 
