@@ -53,7 +53,7 @@ static let identifier = "niceCell"
 ```
 regresamos a *Main.storyboard* del lado izquierdo (Show document outline) seleccionamos *Nice Collection View Cell* y del lado derecho (Inspector) en *Show the attributes inspector* en donde dice **identifier** escribimos __niceCell__ y presionamos enter.
 
-Usamos *static* para poder acceder a __niceCell__ desde el nombre de la clase y ahorrándonos la necesidad de instancias esa clase, es decir para acceder a *niceCell* pondríamos *NiceCollectionViewCell.identifier* de manera rápida.
+Usamos *static* para poder acceder a __niceCell__ desde el nombre de la clase y ahorrándonos la necesidad de instanciar un objeto de esa clase y después acceder a sus métodos. Es decir para acceder a *niceCell* pondríamos *NiceCollectionViewCell.identifier* en nuestro código y accederemos a nuestro recurso de manera rápida.
 
 Configuramos nuestros protocolos:
 
